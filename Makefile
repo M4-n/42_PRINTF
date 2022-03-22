@@ -6,11 +6,12 @@
 #    By: mmaythaw <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/05 08:54:59 by mmaythaw          #+#    #+#              #
-#    Updated: 2022/03/22 07:03:33 by mmaythaw         ###   ########.fr        #
+#    Updated: 2022/03/22 07:56:43 by mmaythaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Color
+
 DEFAULT = \033[0;39m
 GRAY = \033[0;90m
 RED = \033[0;91m
@@ -21,13 +22,12 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-SHELL=/bin/bash
-UNAME = $(shell uname -s)
-
 # VARIABLES
+
 NAME = libftprintf.a
 HEADER = ft_printf.h
-CC = gcc -MD
+UNAME = $(shell uname -s)
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 AR = ar rcs
@@ -99,7 +99,6 @@ test: all
 clean:
 	@$(PRINTF) "$(CYAN)Cleaning up object files...$(DEFAULT)\n"
 	@if [ -d "libft" ]; then make clean -C libft; fi
-	@if [ -f "main.d" ]; then $(RM) main.d; fi
 	@$(RM) -r $(OBJM_DIR)
 	@$(RM) -r $(OBJB_DIR)
 
