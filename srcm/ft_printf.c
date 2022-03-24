@@ -6,7 +6,7 @@
 /*   By: mmaythaw <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:05:17 by mmaythaw          #+#    #+#             */
-/*   Updated: 2022/03/17 10:56:32 by mmaythaw         ###   ########.fr       */
+/*   Updated: 2022/03/24 19:17:45 by mmaythaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,23 @@ int	convertion(t_format f, va_list ap)
 int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
-	char	*curr;
 	int		total_len;
 
 	total_len = 0;
 	va_start(ap, str);
-	curr = (char *)str;
-	while (*curr)
+	while (*str)
 	{
-		if (*curr == '%')
+		if (*str == '%')
 		{
-			if (*(++curr))
-				total_len += check_format(curr, ap);
-			while (*curr && !ft_strchr(SPECS, *curr))
-				curr++;
-			if (!(*curr))
-				curr = (char *)str;
+			if (*(++str))
+				total_len += check_format((char *)str, ap);
+			while (*str && !ft_strchr(SPECS, *str))
+				str++;
 		}
 		else
-			total_len += write(1, curr, 1);
-		curr++;
+			total_len += write(1, str, 1);
+		if (*str)
+			str++;
 	}
 	va_end(ap);
 	return (total_len);

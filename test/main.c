@@ -6,7 +6,7 @@
 /*   By: mmaythaw <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 10:36:34 by mmaythaw          #+#    #+#             */
-/*   Updated: 2022/03/19 15:52:28 by mmaythaw         ###   ########.fr       */
+/*   Updated: 2022/03/24 19:26:46 by mmaythaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 		check_leaks(argc, argv[1]);
 	else
 	{
-		printf("ft_printf's len : %d\n", ft_printf("%042d", 42000));
-		printf("printf's len : %d\n", printf("%042d", 42000));
+		printf("ft_printf's len : %d\n", ft_printf("%", 42));
+		printf("printf's len : %d\n", printf("%", 42));
 	}
 }
