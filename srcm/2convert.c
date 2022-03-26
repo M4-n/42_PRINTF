@@ -6,7 +6,7 @@
 /*   By: mmaythaw <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:23:23 by mmaythaw          #+#    #+#             */
-/*   Updated: 2022/03/21 13:19:07 by mmaythaw         ###   ########.fr       */
+/*   Updated: 2022/03/25 09:38:56 by mmaythaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	print_address(t_format f, va_list ap)
 		p += ft_putnchar_fd(' ', 1, f.width - f.precision);
 	p += write(1, "0x", 2 * !f.zero);
 	p += ft_putnchar_fd('0', 1, (f.precision - num_len) * (arg != 0));
-	p += ft_putnchar_fd('0', 1, f.precision * (f.dot &&!arg));
+	p += ft_putnchar_fd('0', 1, f.precision * (f.dot && !arg));
 	if (num_len)
 	{
 		f.precision = get_hex(f, arg, arg);
@@ -78,7 +78,7 @@ int	print_hex(t_format f, va_list ap)
 	arg = va_arg(ap, unsigned int);
 	num_len = ft_numlen_base(arg, 16);
 	num_len *= !(!arg && !f.precision && f.dot);
-	if (!f.dot || f.neg || f.precision < num_len)
+	if (!f.dot || f.precision < num_len)
 		f.precision = num_len;
 	if (f.sharp && arg)
 		f.width -= 2;

@@ -6,7 +6,7 @@
 /*   By: mmaythaw <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 09:57:21 by mmaythaw          #+#    #+#             */
-/*   Updated: 2022/03/22 06:51:10 by mmaythaw         ###   ########.fr       */
+/*   Updated: 2022/03/25 09:28:33 by mmaythaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_format
 	int		precision;
 	int		minus;
 	int		plus;
-	int		neg;
 	char	spec;
 }	t_format;
 

@@ -6,7 +6,7 @@
 /*   By: mmaythaw <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 15:04:44 by mmaythaw          #+#    #+#             */
-/*   Updated: 2022/03/21 13:09:14 by mmaythaw         ###   ########.fr       */
+/*   Updated: 2022/03/26 19:34:03 by mmaythaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	print_string(t_format f, va_list ap)
 	str = va_arg(ap, char *);
 	if (!str)
 		str = "(null)";
-	if (!f.dot || f.precision > (int)ft_strlen(str) || f.neg)
+	if (!f.dot || f.precision > (int)ft_strlen(str))
 		f.precision = ft_strlen(str);
-	if (!f.minus && f.zero && !f.dot)
+	if (!f.minus && f.zero && f.width > f.precision)
 		p += ft_putnchar_fd('0', 1, f.width - f.precision);
 	else if (!f.minus)
 		p += ft_putnchar_fd(' ', 1, f.width - f.precision);
